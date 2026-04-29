@@ -1,0 +1,109 @@
+<html>
+    <title>Register a Course</title>
+    <head>
+        <style>
+            * {
+    margin: 15px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Body Background */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #bcd68b, #4b6756);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Container */
+form {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+}
+
+
+
+/* Labels */
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Inputs & Select */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Focus Effect */
+input:focus, select:focus {
+    border-color: #cdc5d5;
+    box-shadow: 0 0 5px rgba(161, 143, 178, 0.5);
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button Hover */
+button:hover {
+    background: linear-gradient(to right, #4a1b10, #a0551a);
+    transform: scale(1.03);
+}
+
+/* Center Heading */
+center h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #713838;
+
+}
+        </style>
+    </head>
+    <body>
+        <center>
+        <form action="http://localhost:8080/courses/register" method="post" onsubmit="return validateForm()">
+             <center><h3>Registration</h3></center>
+            <label for="Name">Enter your Name:</label>
+            <input type="text" id="Name" name="name"><br><span id="nameError" style="color:red;"></span><br><br>
+            <label for="EmailId">Email Address:</label>
+            <input type="Email" id="EmailId" name="emailId"><br><span id="emailError" style="color:red;"></span><br>
+             <label for="Contact">Contact:</label>
+            <input type="number"id="Contact" name="contact"><br><br>
+            <label for="Course">Choose a Course:</label>
+            <select id="Course" name="courseName">
+                <option value="Java essentials">Java essentials</option>
+                <option value="DSA">DSA</option>
+                <option value="SpringBoot">SpringBoot</option>
+                <option value="AI tools">AI tools</option>
+            </select><br><br>
+            <button type="submit">Submit</button>
+        </form>
+        <script src="myscript.js"></script>
+        </center>
+    </body>
+
+</html>
