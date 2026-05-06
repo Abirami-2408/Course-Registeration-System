@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Courses</title>
+    <script type="text/javascript" src="myscript.js"></script>
+    <style>
+        /* Table Container */
+.table-container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+ h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+/* Heading */
+.table-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Header */
+th {
+    background: #6a11cb;
+    color: white;
+    padding: 12px;
+    text-transform: uppercase;
+}
+
+/* Cells */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Row Hover */
+tr:hover {
+    background: #f2f2f2;
+}
+    </style>
+</head>
+
+<body>
+
+    <h2>Available Courses</h2>
+    <div class="table-container">
+
+   <!-- table here -->
+    <table align="center" border="1">
+        <thead>
+            <tr align="center">
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Duration (Weeks)</th>
+                <th>Trainer</th>
+            </tr>
+        </thead>
+        <tbody align="center" id="coursetable"></tbody>
+        
+    </table>
+</div>
+    
+<script type="text/javascript">
+    window.onload=function(){
+        showCourses();
+    }
+</script>
+</body>
+</html>

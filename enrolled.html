@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enrolled Students</title>
+    <script src="myscript.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f7fa;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: rgb(223, 207, 207);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        th {
+            background: #6a11cb;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Enrolled Students</h2>
+<div id="editForm" style="display:none;">
+<h3>Edit Student</h3>
+<input type="hidden" id="editId">
+<input type="text" id="editName" placeholder="Name">
+<input type="text" id="editEmail" placeholder="Email">
+<input type="text" id="editContact" placeholder="Contact">
+<input type="text" id="editCourse" placeholder="Course">
+<button onclick="updateStudent()">Update</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email Id</th>
+            <th>Contact</th>
+            <th>CourseName</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody align="center" id="studentTable"></tbody>
+</table>
+<script>
+    window.onload = function () {
+        loadStudents();
+    }
+</script>
+</body>
+</html>
