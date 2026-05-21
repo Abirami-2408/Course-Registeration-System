@@ -1,5 +1,5 @@
 function showCourses(){
-    fetch("http://localhost:8080/api/courses")//API End Point
+    fetch("https://course-registeration-system-3.onrender.com/api/courses")//API End Point
     .then((response)=>response.json())
     .then((courses) =>{
         const dataTable=document.getElementById("coursetable")
@@ -16,7 +16,7 @@ function showCourses(){
     });  
 }
 function loadStudents() {
-    fetch("http://localhost:8080/api/courses/enrolled")//API End Point
+    fetch("https://course-registeration-system-3.onrender.com/api/courses/enrolled")//API End Point
         .then(response => response.json())//http response into json object
         .then((students) => {
             console.log("DATA:", students);
@@ -40,9 +40,9 @@ function loadStudents() {
         .catch(error => console.error("Error:", error));
 }
 function deleteStudent(id) {
-    fetch(`http://localhost:8080/api/courses/${id}`, {
+    fetch(`https://course-registeration-system-3.onrender.com/api/courses/${id}`), {
         method: "DELETE"
-    })
+    }
     .then(response => response.text())
     .then(data => {
         alert(data);
