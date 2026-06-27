@@ -40,7 +40,7 @@ function loadStudents() {
         .catch(error => console.error("Error:", error));
 }
 function deleteStudent(id) {
-    fetch(`https://course-registeration-system-3.onrender.com/api/courses/${id}`), {
+    fetch(`https://courses-registeration-backened.onrender.com/api/courses/${id}`), {
         method: "DELETE"
     }
     .then(response => response.text())
@@ -69,7 +69,7 @@ function updateStudent() {
         courseName: document.getElementById("editCourse").value
     };
 
-    fetch(`http://localhost:8080/api/courses/${id}`, {
+    fetch(`http://courses-registeration-backened.onrender.com/api/courses/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
