@@ -1,5 +1,5 @@
 function showCourses(){
-    fetch("https://"courses-registeration-backened.onrender.com/api/courses)//API End Point
+    fetch("https://courses-registeration-backened.onrender.com/api/courses")//API End Point
     .then((response)=>response.json())
     .then((courses) =>{
         const dataTable=document.getElementById("coursetable")
@@ -69,7 +69,7 @@ function updateStudent() {
         courseName: document.getElementById("editCourse").value
     };
 
-    fetch(`http://courses-registeration-backened.onrender.com/api/courses/${id}`, {
+    fetch(`https://courses-registeration-backened.onrender.com/api/courses/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
