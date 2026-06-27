@@ -39,14 +39,17 @@ function loadStudents() {
         })
         .catch(error => console.error("Error:", error));
 }
-
 function deleteStudent(id) {
+    // Custom confirm instead of browser default
+    const confirmed = confirm("Are you sure you want to delete this student?");
+    if (!confirmed) return;
+
     fetch(`https://courses-registeration-backened.onrender.com/api/courses/${id}`, {
         method: "DELETE"
     })
     .then(response => response.text())
     .then(data => {
-        alert(data);
+        showToast("Student deleted successfully!");
         loadStudents();
     })
     .catch(error => console.error("Error:", error));
@@ -76,8 +79,8 @@ function updateStudent() {
         body: JSON.stringify(data)
     })
     .then(res => res.text())
-    .then(msg => {
-        alert(msg);
+    .then(msg => {  
+        showToast("Student updated successfully!");
         loadStudents();
     })
     .catch(err => console.error(err));
@@ -139,4 +142,26 @@ function validateForm() {
         return false;
     }
     return true;
+}
+function showToast(message) {
+    // Create toast element
+    const toast = document.createElement("div");
+    toast.textContent = message;
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #4b6756;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: bold;
+        z-index: 9999;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    `;
+    document.body.appendChild(toast);
+    // Remove after 3 seconds
+    setTimeout(() => toast.remove(), 3000);
 }
