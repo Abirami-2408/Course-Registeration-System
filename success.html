@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Successful</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #bcd68b, #4b6756);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+        .checkmark {
+            font-size: 60px;
+            color: #4b6756;
+        }
+        h2 {
+            color: #4b6756;
+            margin: 15px 0;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+            margin: 8px 0;
+        }
+        .name { color: #713838; font-weight: bold; }
+        .course { color: #ff7e5f; font-weight: bold; }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover { background: linear-gradient(to right, #4a1b10, #a0551a); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="checkmark">✅</div>
+        <h2>Registration Successful!</h2>
+        <p>Welcome, <span class="name" id="studentName"></span>!</p>
+        <p>You have enrolled in</p>
+        <p class="course" id="courseName"></p>
+        <a href="register.html">Register Another</a>
+        &nbsp;
+        <a href="available.html">View Courses</a>
+    </div>
+
+    <script>
+        // Read name and course from URL
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById("studentName").textContent = 
+            params.get("name") || "Student";
+        document.getElementById("courseName").textContent = 
+            params.get("course") || "Course";
+    </script>
+</body>
+</html>
