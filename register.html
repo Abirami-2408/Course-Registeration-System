@@ -85,23 +85,28 @@ center h3 {
     </head>
     <body>
         <center>
-        <form action="https://courses-registeration-backened.onrender.com/courses/register" method="post" onsubmit="return validateForm()">
-             <center><h3>Registration</h3></center>
-            <label for="Name">Enter your Name:</label>
-            <input type="text" id="Name" name="name"><br><span id="nameError" style="color:red;"></span><br><br>
-            <label for="EmailId">Email Address:</label>
-            <input type="Email" id="EmailId" name="emailId"><br><span id="emailError" style="color:red;"></span><br>
-             <label for="Contact">Contact:</label>
-            <input type="number"id="Contact" name="contact"><br><br>
-            <label for="Course">Choose a Course:</label>
-            <select id="Course" name="courseName">
-                <option value="Java essentials">Java essentials</option>
-                <option value="DSA">DSA</option>
-                <option value="SpringBoot">SpringBoot</option>
-                <option value="AI tools">AI tools</option>
-            </select><br><br>
-            <button type="submit">Submit</button>
-        </form>
+       <form onsubmit="registerStudent(event)">
+    <center><h3>Registration</h3></center>
+    <label for="Name">Enter your Name:</label>
+    <input type="text" id="Name" name="name"><br>
+    <span id="nameError" style="color:red;"></span><br><br>
+    
+    <label for="EmailId">Email Address:</label>
+    <input type="email" id="EmailId" name="emailId"><br><br>
+    
+    <label for="Contact">Contact:</label>
+    <input type="number" id="Contact" name="contact"><br><br>
+    
+    <label for="Course">Choose a Course:</label>
+    <select id="Course" name="courseName">
+        <option value="Java essentials">Java essentials</option>
+        <option value="DSA">DSA</option>
+        <option value="SpringBoot">SpringBoot</option>
+        <option value="AI tools">AI tools</option>
+    </select><br><br>
+    
+    <button type="submit">Submit</button>
+</form>
         <script src="myscript.js"></script>
         </center>
     </body>
