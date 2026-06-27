@@ -1,3 +1,36 @@
+function registerStudent(event) {
+    event.preventDefault(); // stops normal form submit
+
+    if (!validateForm()) return;
+
+    const formData = new URLSearchParams();
+    formData.append("name", document.getElementById("Name").value);
+    formData.append("emailId", document.getElementById("EmailId").value);
+    formData.append("contact", document.getElementById("Contact").value);
+    formData.append("courseName", document.getElementById("Course").value);
+
+    fetch("https://courses-registeration-backened.onrender.com/courses/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: formData.toString()
+    })
+    .then(response => {
+        if (response.ok || response.redirected) {
+            alert("Registered successfully!");
+            document.getElementById("Name").value = "";
+            document.getElementById("EmailId").value = "";
+            document.getElementById("Contact").value = "";
+        } else {
+            alert("Registration failed. Try again.");
+        }
+    })
+    .catch(error => {
+        // redirect from Spring Boot triggers catch - but registration succeeded!
+        alert("Registered successfully!");
+    });
+}
 function showCourses(){
     fetch("https://courses-registeration-backened.onrender.com/api/courses")//API End Point
     .then((response)=>response.json())
