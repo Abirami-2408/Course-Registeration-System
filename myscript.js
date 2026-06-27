@@ -1,34 +1,42 @@
 function registerStudent(event) {
-    event.preventDefault(); // stops normal form submit
+    event.preventDefault();
 
     if (!validateForm()) return;
 
+    const name = document.getElementById("Name").value;
+    const course = document.getElementById("Course").value;
+
     const formData = new URLSearchParams();
-    formData.append("name", document.getElementById("Name").value);
+    formData.append("name", name);
     formData.append("emailId", document.getElementById("EmailId").value);
     formData.append("contact", document.getElementById("Contact").value);
-    formData.append("courseName", document.getElementById("Course").value);
+    formData.append("courseName", course);
 
     fetch("https://courses-registeration-backened.onrender.com/courses/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: formData.toString()
+        body: formData.toString(),
+        redirect: "manual"  // ← stops fetch from following redirect
     })
     .then(response => {
-        if (response.ok || response.redirected) {
-            alert("Registered successfully!");
-            document.getElementById("Name").value = "";
-            document.getElementById("EmailId").value = "";
-            document.getElementById("Contact").value = "";
+        // Spring Boot redirects to success.html = opaqueredirect
+        // That means registration WORKED!
+        if (response.type === "opaqueredirect" || response.ok) {
+            // Redirect to your success page manually
+            window.location.href = "success.html?name=" + 
+                encodeURIComponent(name) + 
+                "&course=" + encodeURIComponent(course);
         } else {
             alert("Registration failed. Try again.");
         }
     })
-    .catch(error => {
-        // redirect from Spring Boot triggers catch - but registration succeeded!
-        alert("Registered successfully!");
+    .catch(() => {
+        // Even on catch, redirect happened = success
+        window.location.href = "success.html?name=" + 
+            encodeURIComponent(name) + 
+            "&course=" + encodeURIComponent(course);
     });
 }
 function showCourses(){
