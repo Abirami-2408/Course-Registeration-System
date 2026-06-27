@@ -40,7 +40,7 @@ function loadStudents() {
         .catch(error => console.error("Error:", error));
 }
 function deleteStudent(id) {
-    fetch(`https://courses-registeration-backened.onrender.com/api/courses/${id}`), {
+    fetch(`https://courses-registeration-backened.onrender.com/api/courses/${id}`,) {
         method: "DELETE"
     }
     .then(response => response.text())
